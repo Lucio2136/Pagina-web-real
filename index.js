@@ -2,10 +2,21 @@ const btnCart = document.querySelector('.container-cart-icon');
 const containerCartProducts = document.querySelector(
 	'.container-cart-products'
 );
-
+//boton pago de carrito
 btnCart.addEventListener('click', () => {
 	containerCartProducts.classList.toggle('hidden-cart');
 });
+const btnPayCart = document.querySelector('.btn-pay-cart'); // Asegúrate de que exista este botón
+
+btnPayCart.addEventListener('click', () => {
+    // Guardar los productos y el total en localStorage
+    localStorage.setItem('cartProducts', JSON.stringify(allProducts));
+    localStorage.setItem('cartTotal', valorTotal.textContent);
+
+    // Redirigir a la página de confirmación
+    window.location.href = 'confirmacion_pago.html';
+});
+
 
 /* ========================= */
 const cartInfo = document.querySelector('.cart-product');
